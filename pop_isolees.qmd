@@ -140,7 +140,7 @@ Malgré une bonne précision d'intégration, une simulation/intégration numéri
 #| fig-cap: Erreur à l'intégration numérique du modèle de Malthus (@eq-malthus)
 #| code-fold: true
 
-fig2, ax3 = plt.subplots(1, 1, figsize=(6, 4))
+fig2, ax3 = plt.subplots(1, 1)
 ax3.plot(tspan, 
          int_malthus[:,0]-np.exp((n-m)*tspan)*x0, 
          color='C1', 
