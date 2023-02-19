@@ -99,7 +99,7 @@ Découvrons aussi différentes options des méthodes `subplots(), plot(), legend
 #| fig-cap: simulation et solution mathématique du modèle de Malthus (@eq-malthus)
 
 ## figure et systèmes d'axes
-fig1, (ax1, ax2) = plt.subplots(1, 2, figsize=(9, 6))  
+fig1, (ax1, ax2) = plt.subplots(1, 2)  
 
 ## titre de la figure
 fig1.suptitle('Simulation du modèle de Malthus\n $n = {}, m = {}$'.format(n, m), 
