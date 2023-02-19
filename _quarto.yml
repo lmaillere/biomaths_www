@@ -1,8 +1,6 @@
 project:
   type: website
   output-dir: docs
-  repo-url: https://github.com/lmaillere/biomaths_www/
-  repo-actions: [edit, issue]
 
 website:
   title: "Biomaths & Python"
@@ -15,6 +13,8 @@ website:
       - pop_interactions.qmd
       - about.qmd
   page-footer: "Copyright 2023, Ludovic Mailleret"
+  repo-url: https://github.com/lmaillere/biomaths_www/
+  repo-actions: [edit, issue]
   
 highlight-style: pygments
 
