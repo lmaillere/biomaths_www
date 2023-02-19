@@ -1,0 +1,16 @@
+---
+title: "Présentation"
+---
+
+
+Ce site propose une introduction à la simulation d'équations différentielles avec Python 3 / Jupyter, centrée sur la simulation de modèles classiques en dynamique des populations.
+
+Le document est structuré comme suit :
+
+- La section sur les [populations isolées](pop_isolees.qmd) introduit les bases en dimension 1 (modèle de Malthus, modèle logistique et effets Allee)
+
+- la section sur les [populations exploitées](pop_exploitees.qmd) introduit les diagrammes de bifurcations et la dimension 2  (prélèvements et effets Allee, interactions insectes-oiseaux)
+
+- la section sur les [populations en interaction](pop_interactions.qmd) approfondit la dimension 2, notamment via les représentations dans l'espace d'état, et traite des interactions entre populations sous l'angle des modèles proies-prédateurs (modèle de Lotka Volterra et modèle de Rosenzweig MacArthur)
+
+[Allons-y !](pop_isolees.qmd)

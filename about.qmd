@@ -1,0 +1,7 @@
+---
+title: "A propos"
+---
+
+Ces pages ont été générées avec [Quarto](https://quarto.org/), [Jupyter](https://jupyter.org) et [Python](https://www.python.org) (version 3.10.8). 
+
+Les principaux modules utilisés sont [NumPy](https://numpy.org), [Matplotlib](https://matplotlib.org), [SciPy](https://scipy.org) et [SymPy](https://www.sympy.org).

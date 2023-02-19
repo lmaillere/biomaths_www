@@ -1,0 +1,17 @@
+{
+  "index.qmd": {
+    "index.html": "6352a4bb"
+  },
+  "about.qmd": {
+    "about.html": "74288142"
+  },
+  "pop_interactions.qmd": {
+    "pop_interactions.html": "bad49485"
+  },
+  "pop_isolees.qmd": {
+    "pop_isolees.html": "e1f03274"
+  },
+  "pop_exploitees.qmd": {
+    "pop_exploitees.html": "cc1b100b"
+  }
+}

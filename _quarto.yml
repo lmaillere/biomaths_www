@@ -1,0 +1,36 @@
+project:
+  type: website
+
+website:
+  title: "Biomaths & Python"
+  sidebar:
+    style: floating
+    contents:
+      - index.qmd
+      - pop_isolees.qmd
+      - pop_exploitees.qmd
+      - pop_interactions.qmd
+      - about.qmd
+  page-footer: "Copyright 2023, Ludovic Mailleret"
+  
+highlight-style: pygments
+
+reference-location: margin
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    code-fold: false
+    code-tools: true
+    html-math-method: katex
+
+license: CC BY-NC 
+
+bibliography: references.bib
+
+jupyter: python3
+
+execute:
+ cache: true
