@@ -270,7 +270,7 @@ div.csl-indent {
 <section id="dynamiques" class="level3">
 <h3 class="anchored" data-anchor-id="dynamiques">Dynamiques</h3>
 <p>Il n’y a pas de difficulté particulière à la simulation par rapport au modèle de la tordeuse du bourgeon de l’épinette avec population d’oiseaux variables.</p>
-<div class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="1">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">## on nettoie l'espace de travail et on reload les modules</span></span>
@@ -311,7 +311,7 @@ div.csl-indent {
 </details>
 </div>
 <p>Représentation graphique contre le temps :</p>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="2">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">## création d'une figure, et d'un système d'axe</span></span>
@@ -344,7 +344,7 @@ div.csl-indent {
 <h3 class="anchored" data-anchor-id="plan-de-phase">Plan de phase</h3>
 <p>Il est intéressant de représenter les trajectoires dans l’espace d’état <span class="math inline">(x,y)</span>, en combinaison avec une analyse qualitative du plan de phase (isoclines nulles, équilibres), une représentation du champs de vecteurs et de quelques morceaux de trajectoires sur le plan.</p>
 <p>Commençons par calculer les isoclines nulles et les équilibres.</p>
-<div class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="3">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">## array annexes pour le calcul et la représentation des isoclines nulles</span></span>
@@ -365,7 +365,7 @@ div.csl-indent {
 </details>
 </div>
 <p>Puis on trace le plan de phase.</p>
-<div class="cell" data-execution_count="5">
+<div class="cell" data-execution_count="4">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">## création d'une figure, et d'un système d'axe</span></span>
@@ -394,8 +394,8 @@ div.csl-indent {
 <span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>ax2.legend(fontsize<span class="op">=</span><span class="st">'10'</span>, loc <span class="op">=</span> <span class="st">"upper right"</span>)</span>
 <span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="co">## modification éventuelle des bornes des axes</span></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>ax2.set_ylim(bottom<span class="op">=-</span><span class="fl">.1</span>, top<span class="op">=</span><span class="va">None</span>)</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>ax2.set_xlim(left<span class="op">=-</span><span class="fl">.1</span>, right<span class="op">=</span><span class="va">None</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>ax2.set_ylim(bottom<span class="op">=-</span><span class="fl">.2</span>, top<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>ax2.set_xlim(left<span class="op">=-</span><span class="fl">.2</span>, right<span class="op">=</span><span class="va">None</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="fig-lovo-plane" class="quarto-figure quarto-figure-center anchored">
@@ -407,7 +407,7 @@ div.csl-indent {
 </div>
 </div>
 <p>Complètons ce plan de phase avec l’orientation du champs de vecteurs (fonction <code>quiver</code>) et des échantillons de trajectoires (fonction <code>streamplot</code>). Ces représentations reposent sur la définition d’une grille de coordonnées sur le plan, via une <code>meshgrid</code>.</p>
-<div class="cell" data-execution_count="6">
+<div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">## définition de l'échantillonnage selon $x$ et $y$</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x_grid <span class="op">=</span> np.linspace(<span class="fl">0.1</span>, <span class="fl">3.0</span>, <span class="dv">10</span>)   <span class="co"># au passage on change un peu de np.arange()</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>y_grid <span class="op">=</span> np.linspace(<span class="fl">0.1</span>, <span class="fl">3.0</span>, <span class="dv">10</span>)</span>
@@ -416,11 +416,11 @@ div.csl-indent {
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>X, Y <span class="op">=</span> np.meshgrid(x_grid, y_grid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Sur cette grille, on calcule les dérivées <span class="math inline">\dot x</span> et <span class="math inline">\dot y</span> :</p>
-<div class="cell" data-execution_count="7">
+<div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>dx, dy <span class="op">=</span> model_LV([X, Y], <span class="dv">0</span>, params_LV)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Et on peut compléter le plan de phase :</p>
-<div class="cell" data-execution_count="8">
+<div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">## tracé du champs de vecteur</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>ax2.quiver(X, Y, dx, dy, angles <span class="op">=</span> <span class="st">'xy'</span>, color <span class="op">=</span> <span class="st">'grey'</span>, width <span class="op">=</span> <span class="fl">.002</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -457,7 +457,7 @@ Important
 <p><span class="math display">
 H(x,y) = -r\log(y)+ c y - m \log(x) + b x.
 </span></p>
-<div class="cell" data-execution_count="9">
+<div class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> int_premiere(etat, params):</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    x, y <span class="op">=</span> etat                       </span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    r, c, b, m <span class="op">=</span> params               </span>
@@ -466,7 +466,7 @@ H(x,y) = -r\log(y)+ c y - m \log(x) + b x.
 </div>
 <p>Effectuons une représentation graphique en 3D dans l’espace <span class="math inline">(x, y, H)</span>, ce qui fournit un visuel intéressant.</p>
 <p>Pour celà nous avons besoin d’une <code>meshgrid</code> plus précise que celle définie plus haut.</p>
-<div class="cell" data-execution_count="10">
+<div class="cell" data-execution_count="9">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x_grid <span class="op">=</span> np.linspace(<span class="fl">0.15</span>, <span class="fl">3.0</span>, <span class="dv">30</span>)   </span>
@@ -474,7 +474,7 @@ H(x,y) = -r\log(y)+ c y - m \log(x) + b x.
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>X, Y <span class="op">=</span> np.meshgrid(x_grid, y_grid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-execution_count="11">
+<div class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fig3, ax3 <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>, subplot_kw<span class="op">=</span>{<span class="st">"projection"</span>: <span class="st">"3d"</span>})  </span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">## colormaps</span></span>
@@ -507,7 +507,7 @@ H(x,y) = -r\log(y)+ c y - m \log(x) + b x.
 </div>
 </div>
 <p>On rajoute la trajectoire et la valeur <span class="math inline">H(x,y) = H(x_0, y_0)</span> :</p>
-<div class="cell" data-execution_count="12">
+<div class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">## H(x,y) = H(x0,y0)</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>ax3.plot_surface(X, Y, </span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                np.ones_like(X)<span class="op">*</span>int_premiere([x0, y0], params_LV), </span>
@@ -542,7 +542,7 @@ H(x,y) = -r\log(y)+ c y - m \log(x) + b x.
 <section id="dynamiques-et-plan-de-phase" class="level3">
 <h3 class="anchored" data-anchor-id="dynamiques-et-plan-de-phase">Dynamiques et plan de phase</h3>
 <p>Il n’y a pas de difficulté particulière à la simulation par rapport au modèle de Lotka Volterra.</p>
-<div class="cell" data-execution_count="13">
+<div class="cell" data-execution_count="12">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
@@ -584,7 +584,7 @@ H(x,y) = -r\log(y)+ c y - m \log(x) + b x.
 </details>
 </div>
 <p>Représentation graphique des trajectoires contre le temps :</p>
-<div class="cell" data-execution_count="14">
+<div class="cell" data-execution_count="13">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>fig1, ax1 <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>)  </span>
@@ -611,7 +611,7 @@ H(x,y) = -r\log(y)+ c y - m \log(x) + b x.
 </div>
 </div>
 <p>Représentation graphique dans le plan de phase :</p>
-<div class="cell" data-execution_count="15">
+<div class="cell" data-execution_count="14">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>fig2, ax2 <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>)  </span>
@@ -684,7 +684,7 @@ H(x,y) = -r\log(y)+ c y - m \log(x) + b x.
 </ul>
 <p>Dans un premier temps nous allons calculer et représenter les différents équilibres et leur stabilité dans le plan <span class="math inline">(K, y)</span>, puis nous calculerons et rajouterons une représentation du cycle limite.</p>
 <p>Commençons par les équilibres :</p>
-<div class="cell" data-execution_count="16">
+<div class="cell" data-execution_count="15">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>pas_K <span class="op">=</span> <span class="fl">.1</span></span>
@@ -705,7 +705,7 @@ H(x,y) = -r\log(y)+ c y - m \log(x) + b x.
 </details>
 </div>
 <p>Représentation graphique :</p>
-<div class="cell" data-execution_count="17">
+<div class="cell" data-execution_count="16">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>fig3, ax3 <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>)  </span>
@@ -744,7 +744,7 @@ H(x,y) = -r\log(y)+ c y - m \log(x) + b x.
 </div>
 </div>
 <p>On aimerait pouvoir visualiser sur le diagramme de bifurcations l’amplitude du cycle limite attractif qui émerge de l’équilibre instable. Pour cela, on utilise une approche qui consiste à simuler pendant longtemps le système dynamique et récupérer les extrema de la trajectoire périodique pour ensuite les tracer (approche “brute force”).</p>
-<div class="cell" data-execution_count="18">
+<div class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">## temps d'intégration du transitoire "long"</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>tspan_transitoire <span class="op">=</span> np.arange(t_0, <span class="dv">100</span><span class="op">*</span>t_fin, pas_t)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -772,7 +772,7 @@ H(x,y) = -r\log(y)+ c y - m \log(x) + b x.
 <span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>    y_cycle_max <span class="op">=</span> np.append(y_cycle_max, np.<span class="bu">max</span>(int_RMA_cycle[:,<span class="dv">1</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Il ne reste plus qu’à tracer ces branches correspondant au cycle limite.</p>
-<div class="cell" data-execution_count="19">
+<div class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>ax3.plot(Kplot3, y_cycle_min, color <span class="op">=</span> <span class="st">'C0'</span>, label <span class="op">=</span> <span class="st">"cycle limite attractif"</span>)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>ax3.plot(Kplot3, y_cycle_max, color <span class="op">=</span> <span class="st">'C0'</span>)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1227,8 +1227,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-147"><a href="#cb19-147" aria-hidden="true" tabindex="-1"></a>ax2.legend(fontsize<span class="op">=</span><span class="st">'10'</span>, loc <span class="op">=</span> <span class="st">"upper right"</span>)</span>
 <span id="cb19-148"><a href="#cb19-148" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-149"><a href="#cb19-149" aria-hidden="true" tabindex="-1"></a><span class="co">## modification éventuelle des bornes des axes</span></span>
-<span id="cb19-150"><a href="#cb19-150" aria-hidden="true" tabindex="-1"></a>ax2.set_ylim(bottom<span class="op">=-</span><span class="fl">.1</span>, top<span class="op">=</span><span class="va">None</span>)</span>
-<span id="cb19-151"><a href="#cb19-151" aria-hidden="true" tabindex="-1"></a>ax2.set_xlim(left<span class="op">=-</span><span class="fl">.1</span>, right<span class="op">=</span><span class="va">None</span>)<span class="op">;</span></span>
+<span id="cb19-150"><a href="#cb19-150" aria-hidden="true" tabindex="-1"></a>ax2.set_ylim(bottom<span class="op">=-</span><span class="fl">.2</span>, top<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb19-151"><a href="#cb19-151" aria-hidden="true" tabindex="-1"></a>ax2.set_xlim(left<span class="op">=-</span><span class="fl">.2</span>, right<span class="op">=</span><span class="va">None</span>)<span class="op">;</span></span>
 <span id="cb19-152"><a href="#cb19-152" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-153"><a href="#cb19-153" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-154"><a href="#cb19-154" aria-hidden="true" tabindex="-1"></a>Complètons ce plan de phase avec l'orientation du champs de vecteurs (fonction <span class="in">`quiver`</span>) et des échantillons de trajectoires (fonction <span class="in">`streamplot`</span>). Ces représentations reposent sur la définition d'une grille de coordonnées sur le plan, via une <span class="in">`meshgrid`</span>.</span>
