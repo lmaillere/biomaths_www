@@ -275,11 +275,11 @@ div.csl-indent {
 <section id="préliminaires" class="level3">
 <h3 class="anchored" data-anchor-id="préliminaires">Préliminaires</h3>
 <p>On commence par nettoyer l’espace de travail, dans Jupyter :</p>
-<div class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Et on importe les modules cités précédemment :</p>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -289,7 +289,7 @@ div.csl-indent {
 <section id="système-dynamique" class="level3">
 <h3 class="anchored" data-anchor-id="système-dynamique">Système dynamique</h3>
 <p>Définissons le modèle: une fonction de l’état <span class="math inline">x</span>, du temps <span class="math inline">t</span> (nécessaire pour <code>odeint</code>), de paramètres, qui renvoit la dérivée <span class="math inline">\dot x</span>.</p>
-<div class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> model_malthus(etat, t, params): </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> etat        <span class="co"># unpack l'etat</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    n, m <span class="op">=</span> params   <span class="co"># unpack params -&gt; params locaux </span></span>
@@ -313,20 +313,20 @@ Important
 <section id="problème-de-cauchy-initial-value-problem" class="level3">
 <h3 class="anchored" data-anchor-id="problème-de-cauchy-initial-value-problem">Problème de Cauchy (initial value problem)</h3>
 <p>Définissons les conditions initiales, et encapsulons le dans un <code>np.array</code> :</p>
-<div class="cell" data-execution_count="5">
+<div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>x0 <span class="op">=</span> <span class="fl">0.1</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>etat0_malthus <span class="op">=</span> np.array([x0])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Définissons les paramètres et encapsulons les :</p>
-<div class="cell" data-execution_count="6">
+<div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="fl">3.0</span>     <span class="co"># taux de natalité</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> <span class="fl">2.0</span>     <span class="co"># taux de mortalité</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>params_malthus <span class="op">=</span> np.array([n, m])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Définissons le temps d’intégration <code>tspan</code> (vecteur entre le temps initial et le temps final):</p>
-<div class="cell" data-execution_count="7">
+<div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>t_0 <span class="op">=</span> <span class="fl">0.0</span>           <span class="co"># temps initial</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>t_fin <span class="op">=</span> <span class="fl">10.0</span>        <span class="co"># temps final</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>pas_t <span class="op">=</span> <span class="fl">0.01</span>        <span class="co"># pas de temps </span></span>
@@ -337,7 +337,7 @@ Important
 <section id="intégration" class="level3">
 <h3 class="anchored" data-anchor-id="intégration">Intégration</h3>
 <p>Il s’agit d’utiliser la fonction <code>odeint</code> de <code>scipy</code> :</p>
-<div class="cell" data-execution_count="8">
+<div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>int_malthus <span class="op">=</span> odeint(</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                model_malthus,         <span class="co"># système dynamique</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                etat0_malthus,          <span class="co"># condition initiale</span></span>
@@ -360,7 +360,7 @@ Important
 </div>
 </div>
 <p>L’intégration est faite :</p>
-<div class="cell" data-execution_count="9">
+<div class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>int_malthus[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>array([[0.1       ],
@@ -376,7 +376,7 @@ Important
 <h3 class="anchored" data-anchor-id="représentation-graphique">Représentation graphique</h3>
 <p>Créons une figure et deux systèmes d’axes pour représenter deux sous-figures, puis traçons l’évolution de <span class="math inline">x(t)</span> calculée numériquement en fonction du temps (gauche) ou la <em>solution</em> mathématique <span class="math inline">x(t)=e^{(n-m)t} x_0</span> (droite). La représentation est visible dans la <a href="#fig-malthus">Figure&nbsp;1</a>.</p>
 <p>Découvrons aussi différentes options des méthodes <code>subplots(), plot(), legend()</code>, l’utilisation de LaTeX dans les chaînes de caractères, ou les <code>fstrings</code> de Python 3 pour compléter les chaines de caractères avec des valeurs via <code>"".format()</code>.</p>
-<div class="cell" data-execution_count="10">
+<div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">## figure et systèmes d'axes</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>fig1, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">6</span>))  </span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -430,10 +430,10 @@ Warning
 <p>Malgré une bonne précision d’intégration, une simulation/intégration numérique reste une approximation des solutions mathématiques, et par construction induit donc des erreurs, comme l’illustre la <a href="#fig-erreur-malthus">Figure&nbsp;2</a>.</p>
 </div>
 </div>
-<div class="cell" data-execution_count="11">
+<div class="cell" data-execution_count="10">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>fig2, ax3 <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>fig2, ax3 <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>ax3.plot(tspan, </span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>         int_malthus[:,<span class="dv">0</span>]<span class="op">-</span>np.exp((n<span class="op">-</span>m)<span class="op">*</span>tspan)<span class="op">*</span>x0, </span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>         color<span class="op">=</span><span class="st">'C1'</span>, </span>
@@ -448,7 +448,7 @@ Warning
 <div class="cell-output cell-output-display">
 <div id="fig-erreur-malthus" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="pop_isolees_files/figure-html/fig-erreur-malthus-output-1.png" width="552" height="398" class="figure-img"></p>
+<p><img src="pop_isolees_files/figure-html/fig-erreur-malthus-output-1.png" width="626" height="481" class="figure-img"></p>
 <p></p><figcaption class="figure-caption">Figure&nbsp;2: Erreur à l’intégration numérique du modèle de Malthus (<a href="#eq-malthus">Equation&nbsp;1</a>)</figcaption><p></p>
 </figure>
 </div>
@@ -463,7 +463,7 @@ Warning
 \dot x = r x \left(1-\frac{x}{K}\right),
 \tag{2}</span></span> avec <span class="math inline">r</span> le taux de croissance intrinsèque de la population et <span class="math inline">K</span> la capacité de charge de l’environnement.</p>
 <p>Il n’y a pas de difficulté particulière par rapport aux simulations précedentes. On commence par nettoyer l’espace de travail, puis ré-importer les modules nécessaires :</p>
-<div class="cell" data-execution_count="12">
+<div class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -476,7 +476,7 @@ Warning
 <ul>
 <li>Définition du système dynamique :</li>
 </ul>
-<div class="cell" data-execution_count="13">
+<div class="cell" data-execution_count="12">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> model_logistic(etat, t, params): </span>
@@ -489,7 +489,7 @@ Warning
 <ul>
 <li>Condition initiale, paramètres, <code>tspan</code> :</li>
 </ul>
-<div class="cell" data-execution_count="14">
+<div class="cell" data-execution_count="13">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">## condition initiale</span></span>
@@ -511,7 +511,7 @@ Warning
 <ul>
 <li>Intégration :</li>
 </ul>
-<div class="cell" data-execution_count="15">
+<div class="cell" data-execution_count="14">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>int_logistic <span class="op">=</span> odeint(</span>
@@ -525,7 +525,7 @@ Warning
 </section>
 <section id="représentation-graphique-1" class="level3">
 <h3 class="anchored" data-anchor-id="représentation-graphique-1">Représentation graphique</h3>
-<div class="cell" data-execution_count="16">
+<div class="cell" data-execution_count="15">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">## figure et systèmes d'axes</span></span>
@@ -581,7 +581,7 @@ Warning
 <ul>
 <li>nettoyage de l’espace de travail et chargement des modules :</li>
 </ul>
-<div class="cell" data-execution_count="17">
+<div class="cell" data-execution_count="16">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
@@ -594,7 +594,7 @@ Warning
 <ul>
 <li>Définition du système dynamique :</li>
 </ul>
-<div class="cell" data-execution_count="18">
+<div class="cell" data-execution_count="17">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> model_allee(etat, t, params): </span>
@@ -607,7 +607,7 @@ Warning
 <ul>
 <li>Paramètres, <code>tspan</code> :</li>
 </ul>
-<div class="cell" data-execution_count="19">
+<div class="cell" data-execution_count="18">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">## paramètres</span></span>
@@ -627,7 +627,7 @@ Warning
 <section id="simulation-conditions-initiales-multiples" class="level3">
 <h3 class="anchored" data-anchor-id="simulation-conditions-initiales-multiples">Simulation : conditions initiales multiples</h3>
 <p>Pour mettre en valeur la bi-stabilité du système dynamique défini par l’<a href="#eq-allee">Equation&nbsp;3</a>, nous créons une fonction qui intègre le problème de Cauchy depuis une condition initiale donnée.</p>
-<div class="cell" data-execution_count="20">
+<div class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> int_allee(x0, tspan<span class="op">=</span>tspan, params<span class="op">=</span>params_allee):</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    sim_allee <span class="op">=</span> odeint(</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>                model_allee,        </span>
@@ -651,7 +651,7 @@ Note
 </div>
 </div>
 <p>Vérifions que la fonction réalise bien ce qui est attendu :</p>
-<div class="cell" data-execution_count="21">
+<div class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>int_allee(<span class="fl">0.1</span>)[:<span class="dv">5</span>,<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
 <pre><code>array([0.1       , 0.09906363, 0.09813549, 0.09721551, 0.09630365])</code></pre>
@@ -661,12 +661,12 @@ Note
 <section id="représentation-graphique-2" class="level3">
 <h3 class="anchored" data-anchor-id="représentation-graphique-2">Représentation graphique</h3>
 <p>L’idée est de représenter plusieurs trajectoires issues de plusieurs conditions initiales. Créons un <code>array</code> de conditions initiales :</p>
-<div class="cell" data-execution_count="22">
+<div class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>x0_step <span class="op">=</span> <span class="fl">1.35</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>x0_arr <span class="op">=</span> np.arange(x0_step, K, x0_step)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Puis nous faisons la représentation graphique via une boucle exploitant la fonction <code>int_allee()</code> :</p>
-<div class="cell" data-execution_count="23">
+<div class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>)  </span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'Simulation du modèle avec effets Allee'</span>\</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'; $r=</span><span class="sc">{}</span><span class="st">, K=</span><span class="sc">{}</span><span class="st">, \epsilon=</span><span class="sc">{}</span><span class="st">$'</span>.<span class="bu">format</span>(r, K, epsilon), </span>
@@ -1171,7 +1171,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb25-160"><a href="#cb25-160" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: Erreur à l'intégration numérique du modèle de Malthus (@eq-malthus)</span></span>
 <span id="cb25-161"><a href="#cb25-161" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
 <span id="cb25-162"><a href="#cb25-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-163"><a href="#cb25-163" aria-hidden="true" tabindex="-1"></a>fig2, ax3 <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
+<span id="cb25-163"><a href="#cb25-163" aria-hidden="true" tabindex="-1"></a>fig2, ax3 <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>)</span>
 <span id="cb25-164"><a href="#cb25-164" aria-hidden="true" tabindex="-1"></a>ax3.plot(tspan, </span>
 <span id="cb25-165"><a href="#cb25-165" aria-hidden="true" tabindex="-1"></a>         int_malthus[:,<span class="dv">0</span>]<span class="op">-</span>np.exp((n<span class="op">-</span>m)<span class="op">*</span>tspan)<span class="op">*</span>x0, </span>
 <span id="cb25-166"><a href="#cb25-166" aria-hidden="true" tabindex="-1"></a>         color<span class="op">=</span><span class="st">'C1'</span>, </span>
