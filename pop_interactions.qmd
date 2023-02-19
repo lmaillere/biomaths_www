@@ -375,8 +375,8 @@ ax2.plot(int_RMA[:, 0], int_RMA[:, 1], color = 'C0', label = "trajectoire")
 ax2.set_xlabel('Proies $x$', fontsize='12')
 ax2.set_ylabel('Prédateurs $y$', fontsize='12')
 ax2.legend(fontsize='10', loc = "upper right")
-ax2.set_ylim(bottom=-.2, top=None)
-ax2.set_xlim(left=-.2, right=None)
+ax2.set_ylim(bottom=-.5, top=None)
+ax2.set_xlim(left=-.5, right=None)
 
 ## représentation du champs de vecteurs
 x_grid = np.linspace(0.1, K, 10)   
