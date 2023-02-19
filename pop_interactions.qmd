@@ -139,8 +139,8 @@ ax2.set_ylabel('Prédateurs $y$', fontsize='12')
 ax2.legend(fontsize='10', loc = "upper right")
 
 ## modification éventuelle des bornes des axes
-ax2.set_ylim(bottom=-.2, top=None)
-ax2.set_xlim(left=-.2, right=None);
+ax2.set_ylim(bottom=-.1, top=None)
+ax2.set_xlim(left=-.1, right=None);
 ```
 
 Complètons ce plan de phase avec l'orientation du champs de vecteurs (fonction `quiver`) et des échantillons de trajectoires (fonction `streamplot`). Ces représentations reposent sur la définition d'une grille de coordonnées sur le plan, via une `meshgrid`.
