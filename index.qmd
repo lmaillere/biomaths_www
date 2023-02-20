@@ -3,7 +3,7 @@ title: "Présentation"
 ---
 
 
-Ce site propose une introduction à la simulation d'équations différentielles avec Python 3 / Jupyter, centrée sur la simulation de modèles classiques en dynamique des populations.
+Ces pages proposent une introduction à la simulation d'équations différentielles avec Python 3 / Jupyter, centrée sur la simulation de modèles classiques en dynamique des populations.
 
 Le document est structuré comme suit :
 
