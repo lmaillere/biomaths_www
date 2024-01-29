@@ -1,4 +1,6 @@
 # biomaths_www
 
-A website using quarto and Python, intended as an introduction to population dynamics simulation (ordinary differential equations).
+A website using Quarto and Python, intended as an introduction to population dynamics simulation (ordinary differential equations).
+
+The html rendering can be accessed [here](https://lmaillere.github.io/biomaths_www/).
 
