@@ -1,5 +1,5 @@
 ---
-title: "Solveur `Solve_ivp()`"
+title: "Solveur `solve_ivp()`"
 ---
 
 La méthode `solve_ivp()` de `SciPy` est aujourd'hui préférée à `odeint()` (cf. [documentation de scipy.integrate.
