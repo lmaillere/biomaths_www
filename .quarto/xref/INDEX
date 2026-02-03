@@ -13,5 +13,8 @@
   },
   "pop_exploitees.qmd": {
     "pop_exploitees.html": "cc1b100b"
+  },
+  "solve_ivp.qmd": {
+    "solve_ivp.html": "704658ee"
   }
 }

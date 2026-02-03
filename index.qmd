@@ -13,4 +13,6 @@ Le document est structuré comme suit :
 
 - la section sur les [populations en interaction](pop_interactions.qmd) approfondit la dimension 2, notamment via les représentations dans l'espace d'état, et traite des interactions entre populations sous l'angle des modèles proies-prédateurs (modèle de Lotka Volterra et modèle de Rosenzweig MacArthur).
 
+- une [dernière section](solve_ivp.qmd) présente la fonction d'intégration `solve_ivp()`, qui permet notamment de choisir la méthode numérique d'intégration et est la méthode recommandée d'intégration d'EDO en 2026.
+
 [Allons-y !](pop_isolees.qmd)
